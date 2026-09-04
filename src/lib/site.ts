@@ -146,3 +146,10 @@ export const EXPERIENCE = [
     points: [],
   },
 ];
+
+/** About section copy — edit freely. */
+export const ABOUT_PARAGRAPHS = [
+  "I'm a developer who enjoys building things from the ground up. I primarily work on Minecraft mods and enjoy the technical side of development, from Java and Gradle builds to creating systems that actually work in-game.",
+  "Outside of development, my experience in active service has helped me develop discipline, accountability, teamwork, responsibility, and the ability to stay focused under pressure.",
+  "I also work with Minecraft PC checking and technical troubleshooting, investigating configurations, software, logs, performance issues, and other technical problems.",
+];
