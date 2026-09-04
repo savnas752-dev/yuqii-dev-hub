@@ -24,8 +24,8 @@ export const Route = createFileRoute("/api/public/auth/discord/callback")({
       GET: async ({ request }) => {
         const url = new URL(request.url);
         const origin = url.origin;
-        const clientId = process.env["DISCORD_CLIENT_ID"];
-        const clientSecret = process.env["DISCORD_CLIENT_SECRET"];
+        const clientId = process.env["1545449273053683813"];
+        const clientSecret = process.env["_2fZSMWSAWxKAASxMEVmJK5RpK_Hcuze"];
         if (!clientId || !clientSecret) return fail(origin, "Discord sign-in is not configured.");
 
         const code = url.searchParams.get("code");
