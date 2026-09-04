@@ -82,7 +82,7 @@ export function Hero({
             <div className="absolute bottom-6 left-6 flex items-center gap-3 rounded-2xl border border-border bg-card/85 px-3 py-2.5 backdrop-blur-md">
               <ImagePlaceholder
                 label="PROFILE"
-                src={profileImage}
+                src={profileImage ?? null}
                 alt="Yuqii profile image"
                 ratio="1 / 1"
                 rounded="rounded-xl"
