@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as AuthCallbackRouteImport } from './routes/auth.callback'
 import { Route as DevlogSlugRouteImport } from './routes/devlog.$slug'
 import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
@@ -19,6 +20,11 @@ import { Route as ApiPublicAuthDiscordStartRouteImport } from './routes/api/publ
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthCallbackRoute = AuthCallbackRouteImport.update({
@@ -51,6 +57,7 @@ const ApiPublicAuthDiscordStartRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/profile': typeof ProfileRoute
   '/auth/callback': typeof AuthCallbackRoute
   '/devlog/$slug': typeof DevlogSlugRoute
   '/projects/$slug': typeof ProjectsSlugRoute
@@ -59,6 +66,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/profile': typeof ProfileRoute
   '/auth/callback': typeof AuthCallbackRoute
   '/devlog/$slug': typeof DevlogSlugRoute
   '/projects/$slug': typeof ProjectsSlugRoute
@@ -68,6 +76,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/profile': typeof ProfileRoute
   '/auth/callback': typeof AuthCallbackRoute
   '/devlog/$slug': typeof DevlogSlugRoute
   '/projects/$slug': typeof ProjectsSlugRoute
@@ -78,6 +87,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/profile'
     | '/auth/callback'
     | '/devlog/$slug'
     | '/projects/$slug'
@@ -86,6 +96,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/profile'
     | '/auth/callback'
     | '/devlog/$slug'
     | '/projects/$slug'
@@ -94,6 +105,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/profile'
     | '/auth/callback'
     | '/devlog/$slug'
     | '/projects/$slug'
@@ -103,6 +115,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ProfileRoute: typeof ProfileRoute
   AuthCallbackRoute: typeof AuthCallbackRoute
   DevlogSlugRoute: typeof DevlogSlugRoute
   ProjectsSlugRoute: typeof ProjectsSlugRoute
@@ -117,6 +130,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/auth/callback': {
@@ -159,6 +179,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ProfileRoute: ProfileRoute,
   AuthCallbackRoute: AuthCallbackRoute,
   DevlogSlugRoute: DevlogSlugRoute,
   ProjectsSlugRoute: ProjectsSlugRoute,
