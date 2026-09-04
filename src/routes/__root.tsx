@@ -13,6 +13,7 @@ import appCss from "../styles.css?url";
 import { AuthProvider } from "../hooks/useAuth";
 import { Nav } from "../components/Nav";
 import { Footer } from "../components/Footer";
+import { Toaster } from "@/components/ui/sonner";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
@@ -134,6 +135,7 @@ function RootComponent() {
         {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
         <Outlet />
         <Footer />
+        <Toaster />
       </AuthProvider>
     </QueryClientProvider>
   );
