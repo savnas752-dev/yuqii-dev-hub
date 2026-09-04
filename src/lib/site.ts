@@ -82,11 +82,22 @@ export const SKILL_GROUPS = [
       "Configuration Analysis",
       "Performance Analysis",
       "Technical Investigation",
+      "Cheat Detection & PC Checking",
     ],
   },
 ];
 
 export const PC_CHECKING = [
+  {
+    title: "Cheat Detection",
+    description:
+      "Scanning for unauthorized modifications and cheats using trusted third-party tools and manual checks.",
+  },
+  {
+    title: "Manual PC Investigation",
+    description:
+      "Manually reviewing files, processes, logs, and system behavior to identify suspicious activity.",
+  },
   {
     title: "Minecraft Configuration",
     description: "Checking Minecraft-related configurations and setups.",
@@ -151,5 +162,5 @@ export const EXPERIENCE = [
 export const ABOUT_PARAGRAPHS = [
   "I'm a developer who enjoys building things from the ground up. I primarily work on Minecraft mods and enjoy the technical side of development, from Java and Gradle builds to creating systems that actually work in-game.",
   "Outside of development, my experience in active service has helped me develop discipline, accountability, teamwork, responsibility, and the ability to stay focused under pressure.",
-  "I also work with Minecraft PC checking and technical troubleshooting, investigating configurations, software, logs, performance issues, and other technical problems.",
+  "I also perform Minecraft PC checking to help identify unauthorized modifications and cheats, using trusted third-party tools alongside manual investigation of files, logs, and system behavior.",
 ];
