@@ -8,7 +8,7 @@ export function PcCheckingSection() {
       <SectionHeading
         eyebrow="06 / Technical"
         title="Minecraft PC Checking"
-        description="I also work with Minecraft and PC checking, investigating configurations, software, logs, performance, and technical issues to identify problems and understand their cause."
+        description="I perform Minecraft PC checking to help identify unauthorized modifications and cheats, using trusted third-party tools alongside manual investigation of files, logs, and system behavior."
       />
       <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {PC_CHECKING.map((item, index) => (
