@@ -93,7 +93,7 @@ function ProjectDetail() {
 
   return (
     <main className="pt-28">
-      <Section>
+      <Section id="project">
         <Link to="/" hash="projects" className="label-mono text-primary hover:text-foreground">
           ← Back to projects
         </Link>

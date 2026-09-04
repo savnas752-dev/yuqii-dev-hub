@@ -67,7 +67,7 @@ function AdminPage() {
   if (loading) {
     return (
       <main className="pt-28">
-        <Section>
+        <Section id="admin">
           <p className="label-mono">Loading…</p>
         </Section>
       </main>
@@ -77,7 +77,7 @@ function AdminPage() {
   if (!session || !isAdmin) {
     return (
       <main className="pt-28">
-        <Section>
+        <Section id="admin">
           <SectionHeading
             eyebrow="Admin"
             title="Not authorised"
@@ -96,7 +96,7 @@ function AdminPage() {
 
   return (
     <main className="pt-28">
-      <Section>
+      <Section id="admin">
         <SectionHeading
           eyebrow="Admin"
           title="Review moderation"

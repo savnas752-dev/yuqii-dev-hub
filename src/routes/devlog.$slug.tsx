@@ -51,7 +51,7 @@ function DevlogPost() {
 
   return (
     <main className="pt-28">
-      <Section>
+      <Section id="post">
         <article className="mx-auto max-w-3xl">
           <Link to="/" hash="devlog" className="label-mono text-primary hover:text-foreground">
             ← Back to devlog

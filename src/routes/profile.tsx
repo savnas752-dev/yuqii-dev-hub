@@ -33,7 +33,7 @@ function ProfilePage() {
   if (loading) {
     return (
       <main className="pt-28">
-        <Section>
+        <Section id="profile">
           <p className="label-mono">Loading…</p>
         </Section>
       </main>
@@ -43,7 +43,7 @@ function ProfilePage() {
   if (!session) {
     return (
       <main className="pt-28">
-        <Section>
+        <Section id="profile">
           <SectionHeading
             eyebrow="Profile"
             title="Sign in required"
@@ -59,7 +59,7 @@ function ProfilePage() {
 
   return (
     <main className="pt-28">
-      <Section>
+      <Section id="profile">
         <SectionHeading eyebrow="Profile" title="Your account" />
         <div className="mt-10 grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
           <div className="card-surface flex items-center gap-4 p-6">
