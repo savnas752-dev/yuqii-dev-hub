@@ -74,7 +74,7 @@ export function Hero({
           <div className="card-surface relative overflow-hidden p-3">
             <ImagePlaceholder
               label="HERO_IMAGE"
-              src={heroImage}
+              src={heroImage ?? null}
               alt="Yuqii hero image"
               ratio="4 / 5"
               className="w-full"
