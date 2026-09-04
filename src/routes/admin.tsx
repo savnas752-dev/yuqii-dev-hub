@@ -43,7 +43,7 @@ function AdminPage() {
   });
 
   const update = useMutation({
-    mutationFn: async ({ id, patch }: { id: string; patch: Partial<ReviewRow> }) => {
+    mutationFn: async ({ id, patch }: { id: string; patch: { status?: ReviewRow["status"]; featured?: boolean } }) => {
       const { error } = await supabase.from("reviews").update(patch).eq("id", id);
       if (error) throw error;
     },
