@@ -27,7 +27,7 @@ export function Terminal() {
   const [value, setValue] = useState("");
   const [lines, setLines] = useState<string[]>([
     "visitor@yuqii:~$ help",
-    ...HELP.map(([cmd, desc]) => `  ${cmd.padEnd(12)}${desc}`),
+    ...HELP.map(([cmd = "", desc = ""]) => `  ${cmd.padEnd(12)}${desc}`),
   ]);
   const endRef = useRef<HTMLDivElement>(null);
 
