@@ -27,7 +27,7 @@ export function Terminal() {
   const [value, setValue] = useState("");
   const [lines, setLines] = useState<string[]>([
     "visitor@yuqii:~$ help",
-    ...HELP.map(([cmd, desc]) => `  ${cmd.padEnd(12)}${desc}`),
+    ...HELP.map(([cmd = "", desc = ""]) => `  ${cmd.padEnd(12)}${desc}`),
   ]);
   const endRef = useRef<HTMLDivElement>(null);
 
@@ -56,7 +56,7 @@ export function Terminal() {
     }
     const output =
       cmd === "help"
-        ? HELP.map(([c, d]) => `  ${c.padEnd(12)}${d}`)
+        ? HELP.map(([c = "", d = ""]) => `  ${c.padEnd(12)}${d}`)
         : (RESPONSES[cmd] ?? [`command not found: ${cmd} — type 'help'`]);
     setLines((prev) => [...prev, `visitor@yuqii:~$ ${cmd}`, ...output]);
   };

@@ -113,14 +113,31 @@ export const devlogQuery = queryOptions({
 export const approvedReviewsQuery = queryOptions({
   queryKey: ["reviews", "approved"],
   queryFn: async () => {
+    // reviews.user_id references auth.users, so PostgREST cannot embed profiles.
+    // Fetch the public profile rows separately and join in memory.
     const { data, error } = await supabase
       .from("reviews")
-      .select("*, profiles(discord_username, avatar_url)")
+      .select("*")
       .eq("status", "approved")
       .order("featured", { ascending: false })
       .order("created_at", { ascending: false });
     if (error) throw error;
-    return (data ?? []) as ReviewRow[];
+    const reviews = (data ?? []) as ReviewRow[];
+    if (reviews.length === 0) return reviews;
+
+    const { data: profiles, error: profilesError } = await supabase
+      .from("profiles")
+      .select("id, discord_username, avatar_url")
+      .in("id", reviews.map((review) => review.user_id));
+    if (profilesError) throw profilesError;
+
+    const byId = new Map(
+      (profiles ?? []).map((profile) => [
+        profile.id,
+        { discord_username: profile.discord_username, avatar_url: profile.avatar_url },
+      ]),
+    );
+    return reviews.map((review) => ({ ...review, profiles: byId.get(review.user_id) ?? null }));
   },
 });
 
